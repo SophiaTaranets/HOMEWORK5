@@ -98,20 +98,6 @@ class Worker {
      
 }
 
-//функція сортування за зарплатою
-function sortBySalary(arr) {
-    for (let i = 0; i < arr.length; i++) {
-        for (let j = 0; j < arr.length; j++) {
-            if (arr[j].showSalaryWithExperience() > arr[j + 1].showSalaryWithExperience()) {
-                let swap = arr[j].showSalaryWithExperience();
-                arr[j].showSalaryWithExperience() == arr[j + 1].showSalaryWithExperience();
-                arr[j + 1].showSalaryWithExperience() == swap;
-            }
-        }
-        console.log(arr[i].fullName + arr[i].showSalaryWithExperience());
-    }
-
-}
 console.log("Task 4");
 // 1 worker
 let worker1 = new Worker("John Johnson", 20, 23);
@@ -146,7 +132,14 @@ console.log("New experience: " , worker3.getExp);
 console.log(worker3.fullName + " salary with experience: ",worker3.showSalaryWithExperience());
 console.log("\n");
 let arrWorkerSalary = [worker1,worker2,worker3];
-//sortBySalary(arrWorkerSalary);
+function sortBySalary(arr) {
+    arr.sort((a, b) => a.showSalaryWithExperience() > b.showSalaryWithExperience() ? 1 : -1);
+  }
+console.log("Sorted salary:");
+sortBySalary(arrWorkerSalary);
+for(let i = 0;i<arrWorkerSalary.length;i++){
+    console.log(arrWorkerSalary[i].fullName + ": "+ arrWorkerSalary[i].showSalaryWithExperience());
+}
 console.log("\n");
 // ****************** Task5 ******************
 
